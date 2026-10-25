@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flygym-env"
+version = "0.1.0"
+description = "Closed-loop FlyGym flee demo driven by metallic fork-on-ceramic screech sensory input."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Fruit Fly Brain Simulation" }]
+dependencies = [
+  "flygym>=2.1.0",
+  "numpy>=1.24",
+  "gymnasium>=0.29",
+  "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+fly-flee-sim = "flygym_env.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+flygym_env = ["py.typed"]
